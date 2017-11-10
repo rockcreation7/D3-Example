@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/d3-selection-multi.v0.4.min.js"></script>
+  <title>Document</title>
+</head>
+<style>
+            
+    .arc text {
+        font-size: 16px;
+        fill: white;
+        text-anchor: middle;
+    } 
+
+</style>
+<body>
+  <div class="fixed_nav_wrapper">
+    <div class="account_section">
+      <div class="logo"></div>
+      <div class="icon"></div>
+      <div class="greeting">Hello! Macy</div>
+      <div class="small_button_group">
+        <span class="button_small">Log out </span>|
+        <span class="button_small"> Setting</span>
+      </div>
+    </div>
+    <div class="nav_menu">
+
+      <div class="button_title">Overview</div>
+      <div class="button_medium">Organization</div>
+      <div class="button_medium active">Group</div>
+
+      <div class="button_title">Device </div>
+      <div class="button_medium">Device Finder</div>
+      <div class="button_medium">Manage Group</div>
+      <div class="button_medium">Speed Fusion</div>
+
+      <div class="button_title">Member</div>
+      <div class="button_medium">Manage User</div>
+
+      <div class="button_title">Setting</div>
+      <div class="button_medium">Manage User</div>
+
+    </div>
+
+  </div>
+
+  <div class="content_wrapper">
+    
+    <div class="breadcrumb">
+      <div class="breadcrumb_info">
+        <span class="breadcrumb_item">
+          <span class="fa fa-dashboard"></span> Overview Dashboard
+        </span>
+        <span class="breadcrumb_item"> 
+            <span class="fa fa-long-arrow-right"></span>  
+        </span>
+        <span class="breadcrumb_item">
+          <span class="fa fa-group"></span> Macy Group
+        </span>
+      </div>
+      <div class="search_wrapper">
+        <span class="fa fa-search"></span>
+        <input class="search" type="text" />
+      </div>
+
+    </div>
+
+    <div class="dashboard_wrapper">
+
+        <div class="col_row">
+          <div class="col_grid_2_3">
+              <div class="device_overview">
+                  <div class="device_overview_header">
+                    <div class="device_overview_header_inner">
+                        <div class="device_overview_item">
+                          <div class="device_status_light green"></div>
+                            <div class="digi_wrap">
+                              <div class="digi">20</div>
+                              <div class="description">Online</div>
+                            </div>  
+                        </div>
+                        <div class="device_overview_item">
+                          <div class="device_status_light red"></div>
+                            <div class="digi_wrap">
+                              <div class="digi">20</div>
+                              <div class="description">Offline</div>
+                            </div>  
+                        </div>
+                        <div class="device_overview_item">
+                          <div class="device_status_light yellow"></div>
+                            <div class="digi_wrap">
+                              <div class="digi">26</div>
+                              <div class="description">Total</div>
+                            </div>  
+                        </div>
+                        <div class="clearfix"></div> 
+                    </div>  
+                  </div>
+    
+                  <div class="device_search_bar">
+                    <div class="device_search_title">
+                      Device Search 
+                    </div>
+                    <div class="advance_search">
+                        <span class="fa fa-filter"></span>
+                    </div>
+                    <div class="device_search_bar_input"> 
+                      <div>
+                        <span class="fa fa-search"></span>
+                        <input class="search" type="text">
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="clearfix"></div> 
+    
+                  <div class="device_table">
+                    <div class="table_row title_row">
+                        <div class="table_1_6 device_table_title device_status">Status</div>
+                        <div class="table_1_6 device_table_title device_name">Name</div>
+                        <div class="table_1_6 device_table_title device_ip">IP</div>
+                        <div class="table_1_6 device_table_title device_usage">Usage</div>
+                        <div class="table_1_6 device_table_title device_up_time">Up Time</div> 
+                        <div class="clearfix"></div> 
+                    </div> 
+    
+                    <div class="table_row_wrap"> 
+
+                        <div class="table_row">
+                            <div class="table_1_6 device_table_item"><div class="single_device_status_light green"></div></div>
+                            <div class="table_1_6 device_table_item">BX11231</div>
+                            <div class="table_1_6 device_table_item">192.168.7.11</div>
+                            <div class="table_1_6 device_table_item">5GB</div>
+                            <div class="table_1_6 device_table_item">200 Hrs</div>
+                            <div class="table_1_6 device_table_item">1/1/2018 14:00</div> 
+                        </div>
+        
+                        <div class="table_row">
+                            <div class="table_1_6 device_table_item"><div class="single_device_status_light green"></div></div>
+                            <div class="table_1_6 device_table_item">BX11231</div>
+                            <div class="table_1_6 device_table_item">192.168.7.11</div>
+                            <div class="table_1_6 device_table_item">5GB</div>
+                            <div class="table_1_6 device_table_item">200 Hrs</div>
+                            <div class="table_1_6 device_table_item">1/1/2018 14:00</div> 
+                        </div>
+        
+                        <div class="table_row">
+                            <div class="table_1_6 device_table_item"><div class="single_device_status_light green"></div></div>
+                            <div class="table_1_6 device_table_item">BX11231</div>
+                            <div class="table_1_6 device_table_item">192.168.7.11</div>
+                            <div class="table_1_6 device_table_item">5GB</div>
+                            <div class="table_1_6 device_table_item">200 Hrs</div>
+                            <div class="table_1_6 device_table_item">1/1/2018 14:00</div> 
+                        </div>
+        
+                        <div class="table_row">
+                            <div class="table_1_6 device_table_item"><div class="single_device_status_light green"></div></div>
+                            <div class="table_1_6 device_table_item">BX11231</div>
+                            <div class="table_1_6 device_table_item">192.168.7.11</div>
+                            <div class="table_1_6 device_table_item">5GB</div>
+                            <div class="table_1_6 device_table_item">200 Hrs</div>
+                            <div class="table_1_6 device_table_item">1/1/2018 14:00</div> 
+                        </div>
+        
+                        <div class="table_row">
+                            <div class="table_1_6 device_table_item"><div class="single_device_status_light green"></div></div>
+                            <div class="table_1_6 device_table_item">BX11231</div>
+                            <div class="table_1_6 device_table_item">192.168.7.11</div>
+                            <div class="table_1_6 device_table_item">5GB</div>
+                            <div class="table_1_6 device_table_item">200 Hrs</div>
+                            <div class="table_1_6 device_table_item">1/1/2018 14:00</div> 
+                        </div>
+        
+                        <div class="table_row">
+                            <div class="table_1_6 device_table_item"><div class="single_device_status_light red"></div></div>
+                            <div class="table_1_6 device_table_item">BX11231</div>
+                            <div class="table_1_6 device_table_item">192.168.7.11</div>
+                            <div class="table_1_6 device_table_item">5GB</div>
+                            <div class="table_1_6 device_table_item">200 Hrs</div>
+                            <div class="table_1_6 device_table_item">1/1/2018 14:00</div> 
+                        </div>
+
+                        <div class="table_row">
+                            <div class="table_1_6 device_table_item"><div class="single_device_status_light red"></div></div>
+                            <div class="table_1_6 device_table_item">BX11231</div>
+                            <div class="table_1_6 device_table_item">192.168.7.11</div>
+                            <div class="table_1_6 device_table_item">5GB</div>
+                            <div class="table_1_6 device_table_item">200 Hrs</div>
+                            <div class="table_1_6 device_table_item">1/1/2018 14:00</div> 
+                        </div>
+                    </div>
+
+                  </div>
+    
+                  <div class="device_management">
+                    <div class="device_button add_device_button">
+                      <span class="fa fa-plus"></span>
+                      Add Device
+                    </div>
+                    <div class="device_button rm_device_button">
+                      <span class="fa fa-minus"></span>
+                      Remove Device
+                    </div>
+                    <!--
+                        <div class="arrow_pagination"> 
+                            <span class="fa fa-arrow-left"></span>
+                            <span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="fa fa-arrow-right"></span> 
+                        </div>
+                    -->
+                    <div class="clearfix"></div> 
+    
+                  </div>
+    
+              </div>
+          </div>
+    
+          <div class="col_grid_1_3">
+    
+              <div class="device_overview full">
+    
+                  <div class="device_search_bar">
+                    <div class="device_search_title">
+                      Group Status
+                    </div>
+                  </div>
+    
+                  <div class="clearfix"></div> 
+    
+                  <div class="device_table">
+                        <div class="svgpie">
+                            <svg></svg>
+                        </div>
+ 
+                    
+                  </div>
+
+                  <!--
+                  <div class="device_management">
+          
+                     
+                    <div class="arrow_pagination"> 
+                        <span class="fa fa-arrow-left"></span>
+                        <span class="dot"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="fa fa-arrow-right"></span> 
+                    </div>
+                    <div class="clearfix"></div> 
+    
+                  </div>
+                  -->
+
+
+              </div>
+
+              <div class="device_overview full">
+                    
+                <div class="device_search_bar">
+                    <div class="device_search_title">
+                        Event Log
+                    </div>
+                </div>
+
+                <div class="clearfix"></div> 
+
+                <div class="device_table">
+
+                    <div class="table_row title_row">
+                        <div class="table_1_8 device_table_title device_status"></div>
+                        <div class="table_1_4 device_table_title device_status">Device</div>
+                        <div class="table_1_4 device_table_title device_name">Time</div>
+                        <div class="table_1_4 device_table_title device_ip">Detail</div> 
+                        <div class="clearfix"></div>
+                    </div> 
+
+                    <div class="table_row_wrap">
+
+                            <div class="table_row">
+                                <div class="table_1_8 device_table_item"><div class="single_device_type warning"></div></div>
+                                <div class="table_1_4 device_table_item">BX11231</div>
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="clearfix"></div>
+                            </div>
+            
+                            <div class="table_row">
+                                <div class="table_1_8 device_table_item"><div class="single_device_type normal"></div></div>
+                                <div class="table_1_4 device_table_item">BX11231</div>
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="clearfix"></div>
+                            </div>
+                                            
+                            <div class="table_row">
+                                <div class="table_1_8 device_table_item"><div class="single_device_type normal"></div></div>
+                                <div class="table_1_4 device_table_item">BX11231</div>
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="clearfix"></div>
+                            </div>
+            
+                            <div class="table_row">
+                                <div class="table_1_8 device_table_item"><div class="single_device_type normal"></div></div>
+                                <div class="table_1_4 device_table_item">BX11231</div>
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="clearfix"></div>
+                            </div>
+            
+                            <div class="table_row">
+                                <div class="table_1_8 device_table_item"><div class="single_device_type normal"></div></div>
+                                <div class="table_1_4 device_table_item">BX11231</div>
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="clearfix"></div>
+                            </div>
+            
+                            <div class="table_row">
+                                <div class="table_1_8 device_table_item"><div class="single_device_type error"></div></div>
+                                <div class="table_1_4 device_table_item">BX11231</div>
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="clearfix"></div>
+                            </div>
+            
+                            <div class="table_row">
+                                <div class="table_1_8 device_table_item"><div class="single_device_type error"></div></div>
+                                <div class="table_1_4 device_table_item">BX11231</div>
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="clearfix"></div>
+                            </div>
+            
+                            <div class="table_row">
+                                <div class="table_1_8 device_table_item"><div class="single_device_type error"></div></div>
+                                <div class="table_1_4 device_table_item">BX11231</div>
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_4 device_table_item">192.168.7.11</div> 
+                                <div class="clearfix"></div>
+                            </div>
+
+                    </div>
+
+                </div>
+
+                <!--
+                    <div class="device_management">
+            
+                        <div class="arrow_pagination"> 
+                            <span class="fa fa-arrow-left"></span>
+                            <span class="dot"></span>
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="fa fa-arrow-right"></span> 
+                        </div>
+
+                        <div class="clearfix"></div> 
+
+                    </div>
+                -->
+
+                </div>
+                          
+              
+          
+              </div>
+    
+          <div class="clearfix"></div> 
+        </div>
+      
+        <div class="col_row">
+          
+            <div class="col_grid_2_3">
+                <div class="device_overview"> 
+
+                    <div class="device_search_bar">
+                      <div class="device_search_title">
+                        Bandwidth Usage
+                      </div> 
+                    </div>
+      
+                    <div class="clearfix"></div> 
+      
+                    <div class="device_table svgwrap"> 
+                    </div>
+      
+                </div>
+            </div>
+      
+            <div class="col_grid_1_3">
+      
+                <div class="device_overview">
+      
+                    <div class="device_search_bar">
+                      <div class="device_search_title">
+                        Top Client By Usage
+                      </div>
+                    </div>
+      
+                    <div class="clearfix"></div> 
+      
+                    <div class="device_table">
+                      <div class="table_row title_row">
+                          <div class="table_1_3 device_table_title device_status">IP</div>
+                          <div class="table_1_3 device_table_title device_name">DownLoad</div>
+                          <div class="table_1_3 device_table_title device_ip">Upload</div> 
+                          <div class="clearfix"></div>
+                      </div> 
+      
+                      <div class="table_row">
+                          <div class="table_1_3 device_table_item">192.168.7.11</div>
+                          <div class="table_1_3 device_table_item">1 GB</div> 
+                          <div class="table_1_3 device_table_item">111 GB</div> 
+                          <div class="clearfix"></div>
+                      </div>
+ 
+                      <div class="table_row">
+                          <div class="table_1_3 device_table_item">192.168.7.11</div>
+                          <div class="table_1_3 device_table_item">1 GB</div> 
+                          <div class="table_1_3 device_table_item">11 GB</div> 
+                          <div class="clearfix"></div>
+                      </div>
+ 
+                      <div class="table_row">
+                          <div class="table_1_3 device_table_item">192.168.7.11</div>
+                          <div class="table_1_3 device_table_item">61 GB</div> 
+                          <div class="table_1_3 device_table_item">1 GB</div> 
+                          <div class="clearfix"></div>
+                      </div>
+ 
+                      <div class="table_row">
+                          <div class="table_1_3 device_table_item">192.168.7.11</div>
+                          <div class="table_1_3 device_table_item">10 GB</div> 
+                          <div class="table_1_3 device_table_item">1 GB</div> 
+                          <div class="clearfix"></div>
+                      </div>
+ 
+                      <div class="table_row">
+                          <div class="table_1_3 device_table_item">192.168.7.11</div>
+                          <div class="table_1_3 device_table_item">9 GB</div> 
+                          <div class="table_1_3 device_table_item">1 GB</div> 
+                          <div class="clearfix"></div>
+                      </div>
+ 
+                      <div class="table_row">
+                          <div class="table_1_3 device_table_item">192.168.7.11</div>
+                          <div class="table_1_3 device_table_item">11 GB</div> 
+                          <div class="table_1_3 device_table_item">1 GB</div> 
+                          <div class="clearfix"></div>
+                      </div>
+
+                      <div class="table_row">
+                          <div class="table_1_3 device_table_item">192.168.7.11</div>
+                          <div class="table_1_3 device_table_item">21 GB</div> 
+                          <div class="table_1_3 device_table_item">1 GB</div> 
+                          <div class="clearfix"></div>
+                      </div>
+                       
+                      <div class="table_row">
+                          <div class="table_1_3 device_table_item">192.168.7.11</div>
+                          <div class="table_1_3 device_table_item">12 GB</div> 
+                          <div class="table_1_3 device_table_item">1 GB</div> 
+                          <div class="clearfix"></div>
+                      </div>
+
+                    </div>
+      
+                    <div class="device_management">
+            
+                      <div class="arrow_pagination"> 
+                          <span class="fa fa-arrow-left"></span>
+                          <span class="dot"></span>
+                          <span class="dot active"></span>
+                          <span class="dot"></span>
+                          <span class="fa fa-arrow-right"></span> 
+                      </div>
+                      <div class="clearfix"></div> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div> 
+
+        </div>
+
+        <div class="col_row">
+                    
+                <div class="col_grid_1_3">
+                        
+                    <div class="device_overview small">
+
+                        <div class="device_search_bar">
+                        <div class="device_search_title">
+                            Top Manufacturer
+                        </div>
+                        </div>
+
+                        <div class="clearfix"></div> 
+
+                        <div class="device_table">
+                        <div class="table_row title_row">
+                            <div class="table_1_2 device_table_title device_status">IP</div> 
+                            <div class="table_1_2 device_table_title device_ip">Bandwidth</div> 
+                            <div class="clearfix"></div>
+                        </div> 
+
+                            <div class="table_row_wrap">
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">Apple</div> 
+                                    <div class="table_1_2 device_table_item">111 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">Google</div> 
+                                    <div class="table_1_2 device_table_item">11 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">HTC</div> 
+                                    <div class="table_1_2 device_table_item">1 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">Sony</div> 
+                                    <div class="table_1_2 device_table_item">1 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">Samsung</div> 
+                                    <div class="table_1_2 device_table_item">1 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">LG</div> 
+                                    <div class="table_1_2 device_table_item">1 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">Nokia</div> 
+                                    <div class="table_1_2 device_table_item">1 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="device_management">
+
+                        <div class="arrow_pagination"> 
+                            more
+                            <span class="fa fa-arrow-right"></span> 
+                        </div>
+                        
+                        <div class="clearfix"></div> 
+                        </div>
+                    </div>
+                </div>
+ 
+                <div class="col_grid_1_3">
+                        
+                    <div class="device_overview small">
+
+                        <div class="device_search_bar">
+                        <div class="device_search_title">
+                            SSID Usage
+                        </div>
+                        </div>
+
+                        <div class="clearfix"></div> 
+
+                        <div class="device_table">
+                        <div class="table_row title_row">
+                            <div class="table_1_2 device_table_title device_status">Name</div> 
+                            <div class="table_1_2 device_table_title device_ip">Bandwidth</div> 
+                            <div class="clearfix"></div>
+                        </div> 
+
+                            <div class="table_row_wrap">
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">Macy's WiFi</div> 
+                                    <div class="table_1_2 device_table_item">111 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">Tony's WiFi</div> 
+                                    <div class="table_1_2 device_table_item">11 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">Peter's WiFi</div> 
+                                    <div class="table_1_2 device_table_item">1 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="table_row">
+                                    <div class="table_1_2 device_table_item">John's WiFi</div> 
+                                    <div class="table_1_2 device_table_item">1 GB</div> 
+                                    <div class="clearfix"></div>
+                                </div> 
+
+                            </div>
+ 
+
+                        </div>
+
+                        <div class="device_management">
+                    
+                            <div class="arrow_pagination"> 
+                                    more
+                                    <span class="fa fa-arrow-right"></span> 
+                            </div>
+                        
+                            <div class="clearfix"></div> 
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--
+
+                <div class="col_grid_1_3">
+                        
+                    <div class="device_overview small">
+
+                        <div class="device_search_bar">
+                        <div class="device_search_title">
+                            Top Client By Usage
+                        </div>
+                        </div>
+
+                        <div class="clearfix"></div> 
+
+                        <div class="device_table">
+                        <div class="table_row title_row">
+                            <div class="table_1_2 device_table_title device_status">IP</div> 
+                            <div class="table_1_2 device_table_title device_ip">Upload</div> 
+                            <div class="clearfix"></div>
+                        </div> 
+
+                        <div class="table_row_wrap">
+
+                            <div class="table_row">
+                                <div class="table_1_2 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_2 device_table_item">111 GB</div> 
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="table_row">
+                                <div class="table_1_2 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_2 device_table_item">11 GB</div> 
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="table_row">
+                                <div class="table_1_2 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_2 device_table_item">1 GB</div> 
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="table_row">
+                                <div class="table_1_2 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_2 device_table_item">1 GB</div> 
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="table_row">
+                                <div class="table_1_2 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_2 device_table_item">1 GB</div> 
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="table_row">
+                                <div class="table_1_2 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_2 device_table_item">1 GB</div> 
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="table_row">
+                                <div class="table_1_2 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_2 device_table_item">1 GB</div> 
+                                <div class="clearfix"></div>
+                            </div>
+                                
+                            <div class="table_row">
+                                <div class="table_1_2 device_table_item">192.168.7.11</div> 
+                                <div class="table_1_2 device_table_item">1 GB</div> 
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="device_management">
+
+                        <div class="arrow_pagination"> 
+                                more
+                                <span class="fa fa-arrow-right"></span> 
+                        </div>
+
+                        <div class="clearfix"></div> 
+                        </div>
+                    </div>
+                </div>
+
+                -->
+ 
+                <div class="clearfix"></div> 
+  
+        </div>
+        
+        <div class="clearfix"></div> 
+
+    </div>
+
+    <div class="clearfix"></div> 
+
+  </div>
+    
+  
+<script>
+
+(function() {
+
+    render()
+
+    function render(){
+
+        var svg = d3.select('.svgwrap').append('svg'),
+            margin = {top: 20, right: 20, bottom: 50, left: 50}, 
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        var width = document.querySelector(".svgwrap").offsetWidth - 100;
+        var heightInherent = 500
+        var height = heightInherent - margin.top - margin.bottom;
+        svg.attr("width", "100%")
+        svg.attr("height", heightInherent)
+
+        var parseTime = d3.timeParse("%d-%b-%y")
+
+        console.log(parseTime)
+        
+        var x = d3.scaleTime()
+            .range([0, width])
+        
+        var y = d3.scaleLinear()
+            .range([height, 0])
+        
+        var line = d3.line()
+            .curve(d3.curveBasis)
+            .x(function(d) { return x(d.date); })
+            .y(function(d) { return y(d.close); })
+        
+        d3.tsv("data.tsv", function(d) {
+        d.date = parseTime(d.date)
+        d.close = +d.close;
+        return d;
+        }, function(error, data) {
+        if (error) throw error
+        
+        x.domain(d3.extent(data, function(d) { return d.date; }));
+        y.domain(d3.extent(data, function(d) { return d.close; }))
+        
+        g.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x).ticks(d3.timeDay.every(4))) 
+            .classed('x axis', true)
+        
+        g.append("g")
+            .call(d3.axisLeft(y)) 
+            .append("text") 
+            .attr("fill", "#fff")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", "0.71em")
+            .attr("text-anchor", "end")
+            .text("Price ($)")
+            .classed('y axis', true)
+        
+        g.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "yellow")
+            .attr("stroke-linejoin", "round")
+            .attr("stroke-linecap", "round")
+            .attr("stroke-width", 1.5)
+            .attr("d", line)
+            .classed('line', true);
+
+        svg.selectAll(".domain")
+            .styles({ fill:"none", stroke:"#fff",  "stroke-width":"1" })
+        
+        svg.selectAll("text")
+            .attr("fill", "#fff")
+
+        svg.selectAll(".tick line")
+            .attr("stroke", "#fff") 
+        }); 
+        
+        window.onresize = function() { 
+            /* Find the new window dimensions */
+            var width = document.querySelector(".svgwrap").offsetWidth - 100; 
+
+            /* Update the range of the scale with new width/height */
+            x.range([0, width]); 
+
+            
+            /* Update the axis with the new scale */
+            svg.select('.x.axis') 
+            .call(d3.axisBottom(x).ticks(d3.timeDay.every(5)))
+
+            /*
+                y.range([height, 0]);
+                svg.select('.y.axis')
+                .call(d3.axisLeft(y))
+            */
+                    
+            svg.selectAll("text")
+                .attr("fill", "#fff")
+
+            svg.selectAll(".tick line")
+                .attr("stroke", "#fff") 
+
+            /* Force D3 to recalculate and update the line */
+            svg.selectAll('.line')
+            .attr("d", line);
+
+       }
+
+    }
+ 
+    var width = 180,
+        height = 180
+
+    var svgpie = d3.select(".svgpie svg")
+        svgpie.attr("width", width)
+        svgpie.attr("height", height)
+
+    
+    var radius = Math.min(width, height) / 2,
+        g = svgpie.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")").classed('shape', true);
+
+    var color = d3.scaleOrdinal(["#4bff9b", "#ff5d5d", "#f4ff4b", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+    var pie = d3.pie()
+        .sort(null)
+        .value(function(d) { return d.population; });
+
+    var path = d3.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+
+    var label = d3.arc()
+        .outerRadius(radius - width/4)
+        .innerRadius(radius - width/4);
+
+    d3.csv("data2.csv", function(d) {
+    d.population = +d.population;
+    return d;
+    }, function(error, data) {
+    if (error) throw error;
+
+    var arc = g.selectAll(".arc")
+        .data(pie(data))
+        .enter().append("g")
+        .attr("class", "arc");
+
+    arc.append("path")
+        .attr("d", path)
+        .attr("fill", function(d) { return color(d.data.age); });
+
+    arc.append("text")
+        .attr("transform", function(d) { 
+            // console.log(d)
+            return "translate(" + label.centroid(d) + ")";
+            })
+        .attr("dy", "0.35em")
+        .text(function(d) { return d.data.age; });
+    });
+    /**/
+
+    setTimeout(function(){
+
+        var width = 180,
+        height = 180
+
+        svgpie.attr("width", width)
+        svgpie.attr("height", height)
+        svgpie.select('g').attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+
+        radius = Math.min(width, height) / 2
+        
+        path = d3.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+
+         
+        label = d3.arc()
+        .outerRadius(radius - width/4)
+        .innerRadius(radius - width/4);
+        
+        svgpie.selectAll("text")
+            .attr("transform", function(d) { 
+                    return "translate(" + label.centroid(d) + ")";
+                })
+            .attr("dy", "0.35em")
+
+        svgpie.selectAll('.arc path').attr("d", path)
+        
+    },2000)
+
+})();
+</script>
+</body>
+
+</html>
